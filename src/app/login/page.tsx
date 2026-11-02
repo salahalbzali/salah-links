@@ -1,0 +1,4 @@
+import Link from "next/link";
+import { signIn } from "@/app/auth-actions";
+import { AuthShell, Field, Notice } from "@/components/auth-ui";
+export default async function Login({searchParams}:{searchParams:Promise<{error?:string;message?:string}>}) { const p=await searchParams; return <AuthShell title="مرحبًا بعودتك" subtitle="سجّل الدخول لإدارة روابطك."><form action={signIn} className="space-y-4"><Field label="البريد الإلكتروني" name="email" type="email" placeholder="you@example.com"/><Field label="كلمة المرور" name="password" type="password" placeholder="8 أحرف على الأقل"/><Notice error={p.error} message={p.message}/><button className="w-full rounded-xl bg-ink px-5 py-3.5 font-bold text-white hover:bg-slate-800">تسجيل الدخول</button></form><p className="mt-6 text-center text-sm text-slate-600">ليس لديك حساب؟ <Link href="/signup" className="font-bold text-amber-700">أنشئ حسابًا</Link></p></AuthShell>; }

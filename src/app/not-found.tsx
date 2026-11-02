@@ -1,0 +1,2 @@
+import Link from "next/link";
+export default function NotFound(){return <main className="grid min-h-screen place-items-center px-5"><div className="text-center"><p className="text-sm font-bold text-amber-700">404</p><h1 className="mt-3 text-3xl font-black">الرابط غير موجود أو انتهت صلاحيته</h1><p className="mt-3 text-slate-500">تحقق من الرابط أو ارجع إلى الصفحة الرئيسية.</p><Link href="/" className="mt-6 inline-block rounded-xl bg-ink px-5 py-3 font-bold text-white">العودة للرئيسية</Link></div></main>}

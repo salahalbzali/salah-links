@@ -1,0 +1,4 @@
+import Link from "next/link";
+import { signUp } from "@/app/auth-actions";
+import { AuthShell, Field, Notice } from "@/components/auth-ui";
+export default async function Signup({searchParams}:{searchParams:Promise<{error?:string}>}) { const p=await searchParams; return <AuthShell title="أنشئ حسابك" subtitle="ابدأ بإدارة روابطك من لوحة واحدة."><form action={signUp} className="space-y-4"><Field label="الاسم (اختياري)" name="name" type="text" placeholder="اسمك أو اسم مشروعك"/><Field label="البريد الإلكتروني" name="email" type="email" placeholder="you@example.com"/><Field label="كلمة المرور" name="password" type="password" placeholder="8 أحرف على الأقل"/><Notice error={p.error}/><button className="w-full rounded-xl bg-ink px-5 py-3.5 font-bold text-white hover:bg-slate-800">إنشاء حساب</button></form><p className="mt-6 text-center text-sm text-slate-600">لديك حساب بالفعل؟ <Link href="/login" className="font-bold text-amber-700">تسجيل الدخول</Link></p></AuthShell>; }
